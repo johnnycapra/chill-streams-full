@@ -1,5 +1,6 @@
 import streams from '../apis/streams';
 import history from '../history';
+
 import { 
     SIGN_IN, 
     SIGN_OUT, 
@@ -58,5 +59,7 @@ export const deleteStream = (id) => {
     return async (dispatch) => {
         await streams.delete(`/streams/${id}`);
         dispatch({ type: DELETE_STREAM, payload: id})
+        history.push('/');
     };
 };
+
